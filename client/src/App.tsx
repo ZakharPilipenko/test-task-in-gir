@@ -3,6 +3,7 @@ import AppRouter from './components/AppRouter';
 import Navbar from './components/UI/Navbar';
 import { useEffect, useState } from 'react';
 import { AuthContext } from './context/authContext';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
   }, [])
 
   return (
+    <ShoppingCartProvider>
     <AuthContext.Provider value={{
       isAuth,
       setIsAuth,
@@ -27,6 +29,7 @@ const App = () => {
     <Navbar/>
     <AppRouter/>
     </AuthContext.Provider>
+    </ShoppingCartProvider>
   );
 };
 
